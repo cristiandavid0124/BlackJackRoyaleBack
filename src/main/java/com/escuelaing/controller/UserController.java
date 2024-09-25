@@ -12,7 +12,7 @@ import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("/blackjack")
 public class UserController {
 
     private final UserService userService;
@@ -22,30 +22,8 @@ public class UserController {
         this.userService = userService;
     }
 
-    // Obtener todos los usuarios
-    @GetMapping
-    public ResponseEntity<List<User>> getAllUsers() {
-        List<User> users = userService.getAllUsers();
-        return new ResponseEntity<>(users, HttpStatus.OK);
-    }
 
-    // Crear un nuevo usuario
-    @PostMapping
-    public ResponseEntity<User> createUser(@RequestBody User user) {
-        User createdUser = userService.saveUser(user);
-        return new ResponseEntity<>(createdUser, HttpStatus.CREATED);
-    }
-
-    // Obtener un usuario por correo electrónico
-    @GetMapping("/{email}")
-    public ResponseEntity<User> getUserByEmail(@PathVariable String email) {
-        User user = userService.getUserByEmail(email);
-        if (user != null) {
-            return new ResponseEntity<>(user, HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-    }
 
     // Otros métodos (actualizar, eliminar) pueden ser añadidos aquí
 }
+
