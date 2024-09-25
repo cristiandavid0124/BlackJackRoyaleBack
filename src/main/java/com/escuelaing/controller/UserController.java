@@ -34,6 +34,19 @@ public class UserController {
         return "New user is added";
 
     }
+
+    @PostMapping("/login")
+    public ResponseEntity<String> login(@RequestBody User user) {
+        // Buscar al usuario por email en la base de datos
+        User existingUser = userService.findUserByEmail(user.getEmail());
+
+        // Verificar si el usuario existe y la contraseña coincide
+        if (existingUser != null && existingUser.getPassword().equals(user.getPassword())) {
+            return ResponseEntity.ok("Login successful");
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid email or password");
+        }
+    }
 }
 
 

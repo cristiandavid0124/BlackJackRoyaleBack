@@ -28,6 +28,8 @@ public class UserService {
         return userRepository.save(user);
     }
 
-
+    public User findUserByEmail(String email) {
+        return userRepository.findByEmail(email);
+    }
     // Otros métodos de negocio como actualización, eliminación, etc.
 }
