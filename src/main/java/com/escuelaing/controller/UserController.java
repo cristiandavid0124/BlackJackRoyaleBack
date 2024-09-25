@@ -10,9 +10,9 @@ import com.escuelaing.service.UserService;
 
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/blackjack")
+@CrossOrigin(origins = "http://localhost:3000")
 public class UserController {
 
     private final UserService userService;
@@ -22,8 +22,25 @@ public class UserController {
         this.userService = userService;
     }
 
+    @GetMapping("/Users")
+    public List<User> getAllUsers(){
+        return userService.getAllUsers();
+    }
+
+    
+    @PostMapping("/register")
+    public String add(@RequestBody User user){
+        userService.saveUser(user);
+        return "New user is added";
+
+    }
+}
+
+
+
+
 
 
     // Otros métodos (actualizar, eliminar) pueden ser añadidos aquí
-}
+
 
