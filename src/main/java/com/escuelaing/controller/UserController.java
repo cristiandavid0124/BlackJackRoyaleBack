@@ -10,7 +10,6 @@ import com.escuelaing.service.UserService;
 
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/blackjack")
 public class UserController {
@@ -22,8 +21,30 @@ public class UserController {
         this.userService = userService;
     }
 
+    @GetMapping("/Users")
+    public List<User> getAllUsers(){
+        return userService.getAllUsers();
+    }
+
+    
+    @PostMapping("/register")
+    public String add(@RequestBody User user){
+        userService.saveUser(user);
+        return "New user is added";
+
+    }
+    // Nuevo método para verificar que el controlador funciona correctamente
+    @GetMapping("/test")
+        public String testMessage() {
+            return "The application is running!";
+        }
+}
+
+
+
+
 
 
     // Otros métodos (actualizar, eliminar) pueden ser añadidos aquí
-}
+
 

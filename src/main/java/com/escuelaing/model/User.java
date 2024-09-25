@@ -1,11 +1,12 @@
 package com.escuelaing.model;
 
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 
-@Document(collection = "Users")
+@EntityScan
 public class User {
 
     @Id

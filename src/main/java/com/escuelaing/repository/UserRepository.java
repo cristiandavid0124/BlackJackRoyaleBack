@@ -9,6 +9,5 @@ import com.escuelaing.model.User;
 @Repository
 public interface UserRepository extends MongoRepository<User, String> {
     // Puedes agregar métodos personalizados aquí si los necesitas
-    User findByEmail(String email);
 }
 
