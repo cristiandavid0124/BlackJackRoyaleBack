@@ -12,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/blackjack")
+@CrossOrigin(origins = "http://localhost:3000")
 public class UserController {
 
     private final UserService userService;
@@ -33,11 +34,6 @@ public class UserController {
         return "New user is added";
 
     }
-    // Nuevo método para verificar que el controlador funciona correctamente
-    @GetMapping("/test")
-        public String testMessage() {
-            return "The application is running!";
-        }
 }
 
 
