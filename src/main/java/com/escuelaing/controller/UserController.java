@@ -31,7 +31,7 @@ public class UserController {
     @PostMapping("/register")
     public String add(@RequestBody User user){
         userService.saveUser(user);
-        return "New user is added";
+        return "Nuevo usuario añadido";
 
     }
 
